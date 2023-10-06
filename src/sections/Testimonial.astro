@@ -1,0 +1,144 @@
+---
+import SliderButtons from "../components/SliderButtons.astro";
+
+const Testimonials = [
+  {
+    content:
+      "“We just wanted to thank you for this fantastic website! We are so grateful for being able to advertise our Petite cabin and receive feedback from people from all over the U.S. and even further.”",
+    author: "Adam Morph — CEO Alfatech",
+  },
+  {
+    content:
+      "“We just wanted to thank you for this fantastic website! We are so grateful for being able to advertise our Petite cabin and receive feedback from people from all over the U.S. and even further.”",
+    author: "Adam Morph — CEO Alfatech",
+  },
+  {
+    content:
+      "“We just wanted to thank you for this fantastic website! We are so grateful for being able to advertise our Petite cabin and receive feedback from people from all over the U.S. and even further.”",
+    author: "Adam Morph — CEO Alfatech",
+  },
+  {
+    content:
+      "“We just wanted to thank you for this fantastic website! We are so grateful for being able to advertise our Petite cabin and receive feedback from people from all over the U.S. and even further.”",
+    author: "Adam Morph — CEO Alfatech",
+  },
+];
+---
+
+<section class="testimonial container">
+  <div>
+    <div class="mask">
+      <h3 class="hide-title">Sound Too Good</h3>
+    </div>
+    <div class="mask">
+      <h3 class="hide-title">To Be True?</h3>
+    </div>
+  </div>
+
+  <div class="testimonial-wrapper">
+    <div class="testimonial-slider">
+      <div class="swiper swiper-testimonial">
+        <div class="swiper-wrapper">
+          {
+            Testimonials.map((testimonial) => {
+              return (
+                <div class="swiper-slide swiper-no-swiping">
+                  <div class="testimonial-content">
+                    <img
+                      src="/assets/quotation.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <p>{testimonial.content}</p>
+                  </div>
+                  <div class="testimonial-bottom">
+                    <span>{testimonial.author}</span>
+                    <SliderButtons />
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import Swiper from "swiper/bundle";
+    import "swiper/css/bundle";
+
+    const swiper = new Swiper(".swiper-testimonial", {
+      navigation: {
+        prevEl: ".prev-button",
+        nextEl: ".next-button",
+      },
+    });
+  </script>
+
+  <style>
+    .testimonial {
+      margin-bottom: var(--space-xl);
+
+      & h3 {
+        font-size: var(--text-xl);
+      }
+    }
+
+    .testimonial-wrapper {
+      margin-top: 60px;
+    }
+
+    .testimonial-slider {
+      width: 765px;
+      margin-left: auto;
+    }
+
+    .testimonial-bottom {
+      width: 695px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-left: auto;
+    }
+
+    .testimonial-wrapper span {
+      font-family: "inter";
+      color: var(--dark-gray);
+    }
+
+    .testimonial-content {
+      display: flex;
+      align-items: start;
+      gap: 30px;
+      color: var(--black);
+
+      font-size: var(--text-lg);
+      margin-bottom: 50px;
+
+      & img {
+        width: 40px;
+      }
+
+      & p {
+        line-height: 50px;
+      }
+    }
+
+    @media (width < 1000px) {
+      .testimonial-content {
+        flex-direction: column;
+      }
+
+      .testimonial-slider {
+        width: 100%;
+      }
+
+      .testimonial-bottom {
+        width: 100%;
+      }
+    }
+  </style>
+</section>

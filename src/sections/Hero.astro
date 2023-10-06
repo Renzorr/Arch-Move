@@ -1,0 +1,91 @@
+---
+ import {Image} from "astro:assets"
+---
+
+<main class="container">
+    <div class="mask">
+      <h2 class="hide-title">Build Your</h2>
+    </div>
+    <div class="mask">
+      <h2 class="hide-title">Dream <span>House</span></h2>
+    </div>
+    <div class="hero-wrap">
+      <div class="hero-content">
+        <div class="mask">
+          <p class="hide-paragraph">
+            100% guaranteed build safe, comfortable and transparent with a project
+            management for the best result
+          </p>
+        </div>
+        <a href="#" class="btn-primary interactable">Free Consultation</a>
+      </div>
+      <div class="hero-img"></div>
+    </div>
+  </main>
+  
+  <style>
+    main {
+      margin-bottom: var(--space-xl);
+    }
+  
+    h2 {
+      font-size: var(--text-3xl);
+      color: var(--black);
+  
+      & span {
+        color: var(--orange);
+      }
+    }
+
+    main .mask {
+      &:nth-child(2) {
+        margin-top: -20px;
+      }
+    }
+  
+    .hero-wrap {
+      margin-top: clamp(30px, 5cqw, 64px);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 55px;
+    }
+  
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+      width: 305px;
+      color: var(--black);
+  
+      & p {
+        font-size: var(--text-base);
+        line-height: 26px;
+      }
+  
+      .btn-primary {
+        padding: 19.5px 36px;
+      }
+    }
+  
+    .hero-img {
+      width: 100%;
+      max-width: 765px;
+      height: 480px;
+      background-color: var(--gray);
+      background: url("/assets/hero.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: 0.5s;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+  
+    @media (width < 420px) {
+      .hero-img {
+        height: 220px;
+      }
+    }
+  </style>
+  

@@ -1,0 +1,145 @@
+---
+import { Icon } from "astro-icon";
+const FeaturesItems = [
+  {
+    name: "safe",
+    title: "100% guaranteed project completion",
+    content:
+      "Build safe, comfortable and transparent with a project management application with a joint account.",
+  },
+  {
+    name: "fees",
+    title: "No additional fees",
+    content:
+      "There are no hidden costs. The value of the offer you get is the value you paid.",
+  },
+  {
+    name: "team",
+    title: "Get escort from the Team",
+    content:
+      "Monitor reports from the Arsitag team who check directly in the field.",
+  },
+];
+---
+
+<section class="features container">
+  <div class="features-wrapper">
+    <img
+      src="/assets/features-img.png"
+      class="features-img"
+      alt="Group Meeting"
+      loading="lazy"
+    />
+    <div class="features-content">
+      <div>
+        <div class="mask">
+          <h3 class="hide-title">Build your needs</h3>
+        </div>
+        <div class="mask">
+          <h3 class="hide-title">with Archmove</h3>
+        </div>
+      </div>
+      <div class="features-items">
+        {
+          FeaturesItems.map((item) => {
+            return (
+              <div class="item">
+                <Icon name={item.name}/>
+                <div class="item-content">
+                  <span>{item.title}</span>
+                  <p>{item.content}</p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+  <div class="button-section">
+    <a href="#" class="btn-primary interactable">Free Consultation</a>
+  </div>
+</section>
+
+<style>
+  .features {
+    margin-bottom: var(--space-xl);
+  }
+
+  .features-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(20px, 5cqw, 120px);
+    margin-bottom: 80px;
+  }
+
+  .features span {
+    font-family: "Inter";
+  }
+
+  .features-img {
+    width: 535px;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 95%);
+    transition: 0.5s;
+  }
+
+  .features-content {
+    width: 465px;
+    padding-block: 30px;
+  }
+
+  .features-content h3 {
+    font-size: var(--text-xl);
+  }
+
+  .features-items {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    color: var(--black);
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(22px, 5cqw, 42px);
+
+    & span {
+      font-weight: 700;
+    }
+
+    & p {
+      margin-top: 8px;
+      color: var(--dark-gray);
+      line-height: 25px;
+    }
+  }
+
+  .item:nth-child(1) [astro-icon] {
+    width: 130px;
+  }
+
+  [astro-icon] {
+    width: 110px;
+    align-self: self-start;
+  }
+
+  [astro-icon] path {
+    color: red;
+    fill: red;
+    stroke: red !important;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .features .btn-primary {
+    padding: 20px 32px;
+    margin: 0 auto;
+  }
+</style>

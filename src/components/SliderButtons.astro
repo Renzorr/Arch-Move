@@ -1,0 +1,28 @@
+<div class="slider-buttons">
+  <button class="prev-button" aria-label="previous slide button">
+    <img src="/assets/arrow-left.png" alt="" aria-hidden="true" />
+  </button>
+  <button class="next-button" aria-label="next slide button">
+    <img src="/assets/arrow-right.png" alt="" aria-hidden="true" />
+  </button>
+</div>
+
+<style>
+  .slider-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slider-buttons button {
+    display: grid;
+    place-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--bg-buttons);
+
+    & img {
+      height: 14px;
+    }
+  }
+</style>

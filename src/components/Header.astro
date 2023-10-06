@@ -1,0 +1,126 @@
+---
+import { Icon } from "astro-icon";
+
+import MenuResponsive from "./MenuResponsive.astro";
+
+export const navLinks = [
+  "How it Works",
+  "Design Gallery",
+  "Architects",
+  "Articles",
+];
+---
+
+<header class="header container">
+  <div class="header-item header-left">
+    <a href="#">
+      <img src="/assets/logo.png" alt="Arch Move Logo" class="logo" />
+    </a>
+    <nav>
+      <ul class="header-links">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href="#" class="link">{link}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="header-item header-right">
+    <button class="search-btn" aria-label="search button">
+      <Icon name="search" class="search-icon" />
+    </button>
+    <a href="#" class="sign-in">Sign In</a>
+    <a href="#" class="sign-up btn-primary interactable">Sign Up</a>
+    <button class="menu" aria-label="menu button">
+      <img src="/assets/menu.png" alt="menu" aria-hidden="true" />
+    </button>
+  </div>
+</header>
+<MenuResponsive />
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 26px var(--space-base);
+
+  }
+
+  .link{
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--black);
+  }
+  
+  .header-item,
+  .header-links {
+    display: flex;
+    align-items: center;  
+  }
+
+  .header-left {
+    gap: 40px;
+  }
+
+  .header-links,
+  .header-right {
+    gap: 24px;
+  }
+
+  .logo {
+    height: 28px;
+  }
+
+  .search-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--rounded);
+    background-color: var(--light-gray);
+    display: grid;
+    place-content: center;
+
+    .search-icon {
+      height: 14px;
+
+      & path {
+        fill: var(--black);
+      }
+    }
+  }
+
+  .header-right .btn-primary {
+    padding: 16px 25px;
+  }
+
+  .menu {
+    display: none;
+
+    & img {
+      height: 10px;
+    }
+  }
+
+  @media (width < 840px) {
+    header .header-links {
+      display: none;
+    }
+
+    header .sign-up {
+      display: none;
+    }
+
+    .menu {
+      display: inherit;
+    }
+  }
+
+  @media (width < 570px) {
+    .sign-in {
+      display: none;
+    }
+  }
+</style>

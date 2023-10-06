@@ -1,0 +1,74 @@
+<section class="contact">
+  <div class="contact-wrapper container">
+    <div class="img-contact"></div>
+    <div class="contact-content">
+      <div>
+        <div class="mask">
+          <h3 class="hide-title">Realize your</h3>
+        </div>
+        <div class="mask">
+          <h3 class="hide-title">dream project</h3>
+        </div>
+        <div class="mask">
+          <h3 class="hide-title">with <span>Archmove</span></h3>
+        </div>
+      </div>
+      <a href="#" class="btn-primary interactable">Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding-top: 50px;
+    background: var(--gradient);
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    flex-wrap: wrap;
+  }
+
+  .img-contact {
+    width: 444px;
+    min-height: 611px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("/assets/contact-img.png");
+  }
+
+  .img-contact.dark-mode {
+    background-image: url("/assets/contact-img-dark.png");
+  }
+
+  .contact-content {
+    text-align: center;
+  }
+
+  .contact-content > div {
+    margin-bottom: 60px;
+  }
+
+  .contact-content h3 {
+    font-size: var(--text-2xl);
+    line-height: 70px;
+
+    & span {
+      color: var(--orange);
+    }
+  }
+
+  .contact-content .btn-primary {
+    padding: 20px 32px;
+  }
+
+  @media (width < 1000px) {
+    .contact-wrapper {
+      justify-content: center;
+    }
+  }
+</style>

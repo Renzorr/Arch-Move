@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon";
+
+const PartnersLogo = [
+  {
+    name: "partner",
+    title: "Nextmove",
+  },
+  {
+    name: "partner",
+    title: "Nextmove",
+  },
+  {
+    name: "partner",
+    title: "Nextmove",
+  },
+  {
+    name: "partner",
+    title: "Nextmove",
+  },
+  {
+    name: "partner",
+    title: "Nextmove",
+  },
+];
+---
+
+<section class="partners container">
+  <div class="mask">
+    <h3 class="hide-title">Our Partners</h3>
+  </div>
+  <div class="partners-wrapper">
+    {
+      PartnersLogo.map((e) => {
+        return <Icon name={e.name} class="partners-logo"/>;
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .partners {
+    margin-bottom: var(--space-xl);
+  }
+
+  .partners h3 {
+    font-size: var(--text-xl);
+    margin-bottom: 100px;
+  }
+
+  .partners-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  [astro-icon] {
+    width: 180px;
+  }
+
+  @media (width < 1050px) {
+    .partners {
+      text-align: center;
+    }
+    .partners-wrapper {
+      gap: 70px;
+      justify-content: center;
+    }
+  }
+</style>

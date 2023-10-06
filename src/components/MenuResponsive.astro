@@ -1,0 +1,93 @@
+---
+import { navLinks } from "./Header.astro";
+---
+
+<div class="menu-responsive">
+    <div class="container">
+      <button class="menu-close" aria-label="close menu button">
+        <img src="/assets/menu-close.png" alt="close menu">
+      </button>
+      <nav>
+          <ul class="header-links">
+            {
+                navLinks.map((link) => (
+                  <li>
+                    <a href="#">{link}</a>
+                  </li>
+                ))
+              }
+            <a href="#" class="sign-up btn-primary">Sign Up</a>
+          </ul>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    const menu = document.querySelector(".menu")
+    const menuClose = document.querySelector(".menu-close")
+    const menuResponsive = document.querySelector(".menu-responsive")
+  
+    menu.addEventListener("click",() =>{
+      menuResponsive.classList.add("active")
+    })
+  
+    menuClose.addEventListener("click",() =>{
+      menuResponsive.classList.remove("active")
+    })
+  </script>
+
+
+<style>
+  .menu-responsive {
+    padding-top: 36px;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -150%;
+    width: 65vw;
+    height: 100%;
+    color:: var(--black);
+    background-color: var(--white);
+    box-shadow: 0 0 50px var(--shadow);
+    transition: var(--transition);
+    z-index: 999;
+
+    .header-links{
+      flex-direction: column;
+      align-items: flex-start;
+
+      & li {
+        margin-bottom: 70px;
+      }
+
+      & li a {
+        color: var(--black);
+      }
+    }
+  }
+
+  .menu-close{
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      margin-bottom: 70px;
+  
+      & img{
+        height: 14px;
+      }
+    }
+
+  .menu-responsive .btn-primary {
+    padding: 16px 25px;
+  }
+
+    .menu-responsive.active{
+     right: 0;
+    }
+
+    @media (width < 840px) {
+      .menu-responsive{
+        display: flex;
+      }
+    }
+</style>

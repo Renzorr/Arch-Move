@@ -1,0 +1,68 @@
+---
+const Links = [
+  "About Us",
+  "How it Works",
+  "FAQ",
+  "Contact Us",
+  "Privacy Policy",
+];
+---
+
+<footer>
+  <div class="footer-wrapper container">
+    <ul>
+      {
+        Links.map((link) => {
+          return (
+            <li>
+              <a href="#">{link}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <img src="/assets/logo.png" alt="Arch Move Logo" loading="lazy"/>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding-block: var(--space-base);
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .footer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .footer-wrapper ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .footer-wrapper ul li a {
+    color: var(--black);
+  }
+
+  .footer-wrapper img {
+    height: 52px;
+  }
+
+  @media (width < 820px) {
+    .footer-wrapper {
+      flex-direction: column-reverse;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .footer-wrapper ul {
+      flex-direction: column;
+    }
+  }
+</style>

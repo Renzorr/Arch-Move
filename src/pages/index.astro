@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+
+import DarkToggle from "../components/DarkToggle.astro";
+import Preloader from "../components/Preloader.astro";
+import Cursor from "../components/Cursor.astro";
+import Layout from "../layouts/Layout.astro";
+
+import Header from "../components/Header.astro";
+import Hero from "../sections/Hero.astro";
+import Rooms from "../sections/Rooms.astro";
+import Features from "../sections/Features.astro";
+import Testimonial from "../sections/Testimonial.astro";
+import Contact from "../sections/Contact.astro";
+import Partner from "../sections/Partner.astro";
+import Footer from "../sections/Footer.astro";
+---
+
+<Layout title="Arch Move">
+  <h1 class="sr-only">Arch Move</h1>
+  <Preloader />
+  <DarkToggle />
+  <Cursor />
+  <Header />
+  <Hero />
+  <Rooms />
+  <Features />
+  <Testimonial />
+  <Contact />
+  <Partner />
+  <Footer />
+  <script src="../js/animation.js"></script>
+</Layout>

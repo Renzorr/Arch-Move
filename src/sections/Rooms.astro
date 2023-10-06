@@ -1,0 +1,100 @@
+---
+import SliderButtons from "../components/SliderButtons.astro";
+
+const RoomSlides = [
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+  {
+    title: "Kitchen",
+    url: "/assets/room-1.png",
+  },
+];
+---
+
+<section class="room container">
+  <div class="room-top">
+    <div>
+      <div class="mask">
+        <h3 class="hide-title">Build professional</h3>
+      </div>
+      <div class="mask">
+        <h3 class="hide-title">valuable room</h3>
+      </div>
+    </div>
+    <SliderButtons />
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {
+        RoomSlides.map((slide) => {
+          return (
+            <div class="swiper-slide interactable" data-type="image">
+              <img src={slide.url} alt={slide.title} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    navigation: {
+      prevEl: ".prev-button",
+      nextEl: ".next-button",
+    },
+    breakpoints: {
+      600: {
+        spaceBetween: 15,
+      },
+    },
+  });
+</script>
+
+<style>
+  .room {
+    margin-bottom: var(--space-xl);
+  }
+
+  .room-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-bottom: 40px;
+
+    & h3 {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .room .swiper-slide {
+    width: 305px !important;
+    height: 432px !important;
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import "../styles/global.css";
+---
+
+<Layout title="404">
+  <h1>404</h1>
+  <div class="text-wrapper">
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+    <span>
+      Error Error Error Error Error Error Error Error Error Error Error Error
+      Error Error Error Error Error Error
+    </span>
+  </div>
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+
+  gsap.fromTo(
+    "span",
+    {
+      x: "-50%",
+    },
+    {
+      x: 0,
+      duration: 0.7,
+      ease: "Power3.easeInOut",
+    }
+  );
+
+  gsap.fromTo(
+    "h1",
+    {
+      y: -1000,
+    },
+    {
+      delay: 0.8,
+      y: 0,
+    }
+  );
+</script>
+
+<style>
+  body {
+    font-family: "Playfair Display";
+    background: var(--orange);
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: clamp(150px, 30cqw, 500px);
+    position: fixed;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: -50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: default;
+  }
+
+  span {
+    font-size: 4vw;
+    text-transform: uppercase;
+    width: 700%;
+    color: var(--black);
+    opacity: 0.1;
+  }
+
+  @media (width < 820px) {
+    span {
+      font-size: 8vw;
+    }
+
+    h1 {
+      top: 41%;
+    }
+  }
+</style>

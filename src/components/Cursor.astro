@@ -1,0 +1,63 @@
+<div class="cursor"></div>
+
+<script>
+  const cursor = document.querySelector(".cursor");
+
+  function animateCursor(e, interacting) {
+    const x = e.clientX - cursor.offsetWidth / 2;
+    const y = e.clientY - cursor.offsetHeight / 2;
+
+    const keyframes = {
+      transform: `translate(${x}px, ${y}px) scale(${interacting ? 5 : 1})`,
+    };
+
+    cursor.animate(keyframes, {
+      duration: 800,
+      fill: "forwards",
+    });
+  }
+
+  window.addEventListener("mousemove", (e) => {
+    const interactable = e.target.closest(".interactable");
+    const interacting = interactable !== null;
+
+    if (window.screen.width < 768) cursor.classList.add("inactive");
+    else cursor.classList.remove("inactive");
+
+    if (interacting && interactable.dataset.type === "image") {
+      cursor.textContent = "DRAG";
+      cursor.style.opacity = "1";
+    } else {
+      cursor.textContent = "";
+      cursor.style.opacity = "0.3";
+    }
+
+    animateCursor(e, interacting);
+  });
+</script>
+
+<style>
+  .cursor {
+    font-family: "Playfair Display";
+    font-size: 6px;
+    display: grid;
+    place-content: center;
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    z-index: 9;
+    opacity: 0;
+    color: var(--white-button);
+    background-color: var(--orange);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cursor.inactive {
+    display: none;
+  }
+
+  body:hover .cursor {
+    opacity: 0.3;
+  }
+</style>
